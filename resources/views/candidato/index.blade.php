@@ -38,7 +38,7 @@
                                             @if ($inscricao->status == "aprovado")
                                                 Aprovado
                                             @else 
-                                                <a target="_black" href="http://consulta.tesouro.fazenda.gov.br/gru_novosite/gru_simples.asp">
+                                                <a target="_black" href="https://pagtesouro.tesouro.gov.br/portal-gru/#/emissao-gru">
                                                     Gerar Boleto
                                                 </a>
                                             @endif
@@ -97,7 +97,7 @@
                                             @if ($inscricao->status == "aprovado")
                                                 Aprovado
                                             @else 
-                                                <a target="_black" href="http://consulta.tesouro.fazenda.gov.br/gru_novosite/gru_simples.asp">
+                                                <a target="_black" href="https://pagtesouro.tesouro.gov.br/portal-gru/#/emissao-gru">
                                                     Gerar Boleto
                                                 </a>
                                             @endif
