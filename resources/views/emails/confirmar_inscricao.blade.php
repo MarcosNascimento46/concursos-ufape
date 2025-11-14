@@ -41,9 +41,9 @@
         @else
             <label style="float: left; width:100%; font-family: Arial, Helvetica, sans-serif; margin-top:-5px;color:#000000; font-size:16px">Não.</label>
         @endif
-        <label style="float: left; width:100%; font-family: Arial, Helvetica, sans-serif; color:#000000; font-size:16px; margin-top:10px;"><b>Sou declaradamente preto ou pardo e desejo concorrer à vaga reservada pela Lei no 12.990/2014, caso exista em Edital Específico.</b></label>
+        <label style="float: left; width:100%; font-family: Arial, Helvetica, sans-serif; color:#000000; font-size:16px; margin-top:10px;"><b>Sou declaradamente preto ou pardo, indígena ou quilombola e desejo concorrer à vaga reservada pela Lei nº Lei Federal nº 15.142, de 03 de junho de 2025.</b></label>
         @if($inscricao->cotista == "true")
-            <label style="float: left; width:100%; font-family: Arial, Helvetica, sans-serif; margin-top:-5px;color:#000000; font-size:16px">Sim, sou declaradamente preto ou pardo e desejo concorrer à vaga reservada pela Lei no 12.990/2014.</label>
+            <label style="float: left; width:100%; font-family: Arial, Helvetica, sans-serif; margin-top:-5px;color:#000000; font-size:16px">Sim, sou declaradamente preto ou pardo, indígena ou quilombola e desejo concorrer à vaga reservada pela Lei nº Lei Federal nº 15.142, de 03 de junho de 2025.</label>
         @else
             <label style="float: left; width:100%; font-family: Arial, Helvetica, sans-serif; margin-top:-5px;color:#000000; font-size:16px">Não.</label>
         @endif

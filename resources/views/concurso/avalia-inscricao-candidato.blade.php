@@ -180,8 +180,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-12">
-                                    <label for="cotista" class="style_campo_titulo">Sou declaradamente preto ou pardo e desejo concorrer à vaga reservada pela Lei no 12.990/2014, caso
-                                        exista em Edital Específico. </label>
+                                    <label for="cotista" class="style_campo_titulo">Sou declaradamente preto ou pardo, indígena ou quilombola e desejo concorrer à vaga reservada pela Lei nº Lei Federal nº 15.142, de 03 de junho de 2025.</label>
                                         <br>
                                         <input type="radio" @if($inscricao->cotista) checked @endif disabled>
                                         <label>Sim</label>
