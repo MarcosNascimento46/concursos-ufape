@@ -32,8 +32,8 @@ class User extends Authenticatable implements MustVerifyEmail
     public static $rules = [
         'email'                      => 'required|email|min:5|max:100|unique:users',
         'password'                   => 'required|string|min:8|confirmed',
-        'nome'                       => 'required|string|min:4|max:50',
-        'sobrenome'                  => 'required|string|min:4|max:50',
+        'nome'                       => 'required|string|min:2|max:50',
+        'sobrenome'                  => 'required|string|min:2|max:50',
         'nome_do_pai'                => 'nullable|string|min:8|max:100',
         'nome_da_mãe'                => 'required|string|min:8|max:100',
         'data_de_nascimento'         => 'required|date',
