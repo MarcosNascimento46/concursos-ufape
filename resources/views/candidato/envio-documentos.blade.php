@@ -8,7 +8,7 @@
                     @if($inscricao->concurso->tipo == \App\Models\Concurso::TIPO_ENUM['substituto'])
                         <h6 class="style_card_container_header_titulo">Etapa - Avaliação de Títulos</h6>
                     @else
-                        <h6 class="style_card_container_header_titulo">Etapa - Compatibilidade do Perfil</h6>
+                        <h6 class="style_card_container_header_titulo">Documentos Pós-inscrição</h6>
                     @endif
                     <h6 class="style_card_container_header_campo_obrigatorio"><span style="color: red; font-weight: bold;">*</span> Campo obrigatório</h6>
                 </div>
@@ -186,11 +186,20 @@
                                     <div class="form-group col-md-12">
                                         <label for="avaliacao_perfil" class="style_campo_titulo" style="color: black; font-weight: bolder;"><span style="color: red; font-weight: bold;">*</span> Anexar Documentos:</label>
                                         @if($arquivos && $arquivos->avaliacao_perfil) <a href="{{route('visualizar.arquivo', ['arquivo' => $arquivos->id, 'cod' => "Avaliacao-perfil"])}}" target="_blank"><img src="{{asset('img/file-pdf-solid.svg')}}" alt="arquivo atual" style="width: 16px;"></a> @endif
-                                        <h6 class="style_subtitulo_documento" style="color: black">
-                                            <ul>
-                                                <li>Cópias de documentos que comprovem a Compatibilidade do Perfil referente à(s) área(s)/subáreas à(s) qual(is) está concorrendo (Edital das Condições Gerais - item 6.2.1).</li>
-                                            </ul>
-                                        </h6>
+                                        <p class="titulo-docs">
+                                            O candidato deverá adicionar os seguintes documentos, conforme o item 21.3 do Edital:
+                                        </p>
+                                        <div class="lista-docs">
+                                            <p><strong>a)</strong> Carteira de Identidade, Documento de Identidade Profissional ou Passaporte (no caso de candidato estrangeiro), ou ainda documento descrito no item 18.3;</p>
+                                            <p><strong>b)</strong> Número do Cadastro de Pessoa Física (CPF), em documento oficial;</p>
+                                            <p><strong>c)</strong> Plano de Atividades;</p>
+                                            <p><strong>d)</strong> Curriculum Vitae (preferencialmente no modelo Lattes-CNPq), que será avaliado na Prova de Títulos (Fase V), caso o candidato seja aprovado na Fase IV;</p>
+                                            <p><strong>e)</strong> Cópia dos documentos comprobatórios do currículo, para fins de pontuação pela comissão, organizados na ordem sequencial dos grupos previstos na ficha de avaliação constante no Anexo II – Tabela de Avaliação de Títulos do Edital, responsabilizando-se o candidato pela veracidade das informações.</p>
+                                        </div>
+
+                                        <p class="obs">
+                                            As referidas cópias deverão compor um único arquivo em formato PDF (a ser avaliado na Prova de Títulos – Fase V, caso o candidato seja aprovado na Fase IV).
+                                        </p>
                                         <input type="file" accept=".pdf" class="form-control style_campo @error('avaliacao_perfil') is-invalid @enderror"
                                             id="avaliacao_perfil" name="avaliacao_perfil" @if(!$arquivos) required @endif/>
                                         @error('avaliacao_perfil')
@@ -227,12 +236,28 @@
     </div>
 </div>
 <script>
-    $("input").change(function(){
-        const fileSize = this.files[0].size / 1024 / 1024;
-        if(fileSize > 15){
-            alert("O arquivo deve ter no máximo 15MB!");
-            this.value = "";
-        };
+    $(document).ready(function(){
+        $('input[type="file"]').on('change', function(){
+            $(this).next('.file-size-warning').remove();
+
+            if(!this.files || !this.files[0]) return;
+            const fileSize = this.files[0].size / 1024 / 1024;
+            if(fileSize > 15){
+                const warning = $('<small class="file-size-warning" style="color: red; display: block; margin-top: 0.25rem;">O arquivo deve ter no máximo 15MB!</small>');
+                $(this).after(warning);
+                this.value = "";
+            } else {
+                $(this).next('.file-size-warning').remove();
+            }
+        });
     });
 </script>
+<style>
+    .lista-docs p,
+    .titulo-docs {
+        margin-left: 0;
+        padding-left: 0;
+        text-align: left;
+    }
+</style>
 @endsection
